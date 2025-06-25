@@ -1,12 +1,15 @@
 const router = require('express').Router();
 const JWT = require('jsonwebtoken');
 
-const createUser = require('../controllers/createUser.controller');
-const listUsers = require('../controllers/listUsers.controller');
-const findUser = require('../controllers/findUser.controller');
-const authenticateUser = require('../controllers/authenticate.controller');
-const checkSession = require('../controllers/checkSession.controller');
-const toggleActivateUser = require('../controllers/toggleActivateUser.controller');
+const createUser = require('../controllers/user/createUser.controller');
+const listUsers = require('../controllers/user/listUsers.controller');
+const findUser = require('../controllers/user/findUser.controller');
+const authenticateUser = require('../controllers/user/authenticate.controller');
+const checkSession = require('../controllers/user/checkSession.controller');
+const toggleActivateUser = require('../controllers/user/toggleActivateUser.controller');
+const requestPasswordRecovery = require('../controllers/user/requestPasswordRecovery.controller');
+const resetPassword = require('../controllers/user/resetPassword.controller');
+const sendEmail = require('../modules/sendEmail.module');
 
 const validateEmail = require('../modules/validateEmail.module');
 const validatePassword = require('../modules/validatePassword.module');
@@ -99,6 +102,37 @@ router.put('/user/toggleActivate/:docId', async (req, res) => {
     const userToggled = await toggleActivateUser(docId);
 
     return res.status(userToggled.status).json(userToggled);
+})
+
+router.post('/user/requestPasswordRecovery', (req, res) => {
+    const { email } = req.body;
+    
+    requestPasswordRecovery(email)
+        .then(response => {
+            res.json(response)
+        })
+        .catch(err => res.json(err))
+
+})
+
+router.post('/user/resetPassword', (req, res) => {
+    const { userId, token, newPassword } = req.body;
+
+    resetPassword(userId, token, newPassword)
+        .then(response => {
+            res.json(response)
+        })
+        .catch(err => res.json(err))
+})
+
+router.post('/user/sendEmail', (req, res) => {
+    const { email, subject, text, html } = req.body;
+
+    sendEmail(email, subject, text, html)
+        .then(response => {
+            res.json(response)
+        })
+        .catch(err => res.json(err))
 })
 
 module.exports = router;

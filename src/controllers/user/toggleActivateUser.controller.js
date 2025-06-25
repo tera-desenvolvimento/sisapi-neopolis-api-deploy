@@ -1,4 +1,4 @@
-const userModel = require('../models/user.model');
+const userModel = require('../../models/user.model');
 
 async function toggleActivateUser(docId) {
     try {

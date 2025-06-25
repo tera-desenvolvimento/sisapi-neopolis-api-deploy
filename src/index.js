@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const CORS = require("cors");
 
 const userRoutes = require("./routes/user.routes");
+const exameRoutes = require("./routes/exame.routes");
 
 const app = express();
 
@@ -19,7 +20,7 @@ app.use((req, res, next) => {
     next();
 })
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 app.get('/', (req, res) => {
     res.json({
@@ -29,6 +30,7 @@ app.get('/', (req, res) => {
 })
 
 app.use(userRoutes);
+app.use(exameRoutes);
 
 require("./modules/databaseConnection.module");
 
