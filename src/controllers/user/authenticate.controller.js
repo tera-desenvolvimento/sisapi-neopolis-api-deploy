@@ -3,7 +3,7 @@ const JWT = require('jsonwebtoken');
 
 async function authenticateUser(docId, password) {
     try {
-        const user = await userModel.find({ docId: docId });
+        const user = await userModel.findOne({ docId: docId });
 
         if (!user) {
             return {
