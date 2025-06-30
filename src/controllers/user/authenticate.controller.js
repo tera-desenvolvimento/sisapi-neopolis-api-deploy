@@ -1,9 +1,9 @@
 const userModel = require('../../models/user.model');
 const JWT = require('jsonwebtoken');
 
-async function authenticateUser(email, password) {
+async function authenticateUser(docId, password) {
     try {
-        const user = await userModel.findOne({ email: email });
+        const user = await userModel.findOne({ docId: docId });
 
         if (!user) {
             return {

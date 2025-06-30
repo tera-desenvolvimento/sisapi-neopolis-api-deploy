@@ -60,16 +60,16 @@ router.get('/user/:docId', async (req, res) => {
 })
 
 router.post('/user/auth', async (req, res) => {
-    const { email, password } = req.body;
+    const { docId, password } = req.body;
 
-    if (!email || !password) {
+    if (!docId || !password) {
         return res.status(400).json({
             status: 400,
             message: "All fields are required",
         });
     } 
 
-    const userAuthenticated = await authenticateUser(email, password);
+    const userAuthenticated = await authenticateUser(docId, password);
 
     return res.status(userAuthenticated.status).json(userAuthenticated);
 })
