@@ -7,17 +7,17 @@ async function authenticateUser(docId, password) {
 
         if (!user) {
             return {
-                status: 404,
+                status: 200,
                 message: 'USER_NOT_FOUND',
             };
         } else if (user.password !== password) {
             return {
-                status: 401,
+                status: 200,
                 message: 'PASSWORD_MISMATCH',
             };
         } else if (!user.isActive) {
             return {
-                status: 403,
+                status: 200,
                 message: 'USER_INACTIVE',
             };
         } else {
