@@ -11,8 +11,8 @@ router.post('/exame/create', async (req, res) => {
     const { docId, type, patientName, patientNumber } = req.body;
 
     if (!docId || !type || !patientName || !patientNumber) {
-        return res.status(400).json({
-            status: 400,
+        return res.json({
+            status: 200,
             message: "All fields are required",
         });
     }
