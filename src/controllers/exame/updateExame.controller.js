@@ -23,7 +23,7 @@ async function updateExame(data) {
         };
     } catch (error) {
         return {
-            status: 500,
+            status: 200,
             message: "ERROR_WHILE_UPDATE_EXAME",
             error: error.message,
         };

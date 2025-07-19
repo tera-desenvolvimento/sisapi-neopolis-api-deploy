@@ -28,7 +28,7 @@ async function createExame(data) {
 
     } catch (error) {
         return {
-            status: 500,
+            status: 200,
             message: "ERROR_WHILE_CREATING_EXAME",
             error: error.message,
         };

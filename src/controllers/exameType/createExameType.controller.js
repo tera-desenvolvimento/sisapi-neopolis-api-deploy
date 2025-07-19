@@ -24,7 +24,7 @@ async function createExameType(type) {
 
     } catch (error) {
         return {
-            status: 500,
+            status: 200,
             message: "ERROR_WHILE_CREATING_EXAME_TYPE",
             error: error.message
         };

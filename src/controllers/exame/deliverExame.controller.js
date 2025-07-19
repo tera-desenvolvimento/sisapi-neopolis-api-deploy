@@ -22,7 +22,7 @@ async function deliverExame(data) {
         };
     } catch (error) {
         return {
-            status: 500,
+            status: 200,
             message: "ERROR_WHILE_DELIVER_EXAME",
             error: error.message,
         };

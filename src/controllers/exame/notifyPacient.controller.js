@@ -33,14 +33,14 @@ async function notifyPacient(data) {
             }
         } else {
             return {
-                status: 400,
+                status: 200,
                 message: "EXAME_NOTIFICATION_FAILED",
                 error: sendMessage.data,
             }
         }        
     } catch (error) {
         return {
-            status: 500,
+            status: 200,
             message: "EXAME_NOTIFICATION_FAILED",
             error: error.message,
         }

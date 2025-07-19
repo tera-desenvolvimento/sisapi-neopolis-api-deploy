@@ -10,7 +10,7 @@ async function listExames() {
         };
     } catch (error) {
         return {
-            status: 500,
+            status: 200,
             message: "EXAMES_RETRIEVAL_FAILED",
             error: error.message,
         };
