@@ -10,7 +10,7 @@ async function listUsers() {
         };
     } catch (error) {
         return {
-            status: 500,
+            status: 200,
             message: "USERS_RETRIEVAL_FAILED",
             error: error.message,
         };

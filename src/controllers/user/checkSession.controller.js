@@ -8,12 +8,12 @@ async function checkSession(token) {
 
         if (!user) {
             return {
-                status: 404,
+                status: 200,
                 message: 'USER_NOT_FOUND',
             };
         } else if (!user.isActive) {
             return {
-                status: 403,
+                status: 200,
                 message: 'USER_INACTIVE',
             };
         } else {
@@ -31,7 +31,7 @@ async function checkSession(token) {
         }
     } catch (error) {
         return {
-            status: 401,
+            status: 200,
             message: 'INVALID_TOKEN',
             error: error.message,
         };

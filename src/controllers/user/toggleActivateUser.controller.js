@@ -6,7 +6,7 @@ async function toggleActivateUser(docId) {
 
         if (!user) {
             return {
-                status: 404,
+                status: 200,
                 message: 'USER_NOT_FOUND',
             };
         }
@@ -28,7 +28,7 @@ async function toggleActivateUser(docId) {
     }
     catch (error) {
         return {
-            status: 500,
+            status: 200,
             message: 'INTERNAL_SERVER_ERROR',
             error: error.message,
         };

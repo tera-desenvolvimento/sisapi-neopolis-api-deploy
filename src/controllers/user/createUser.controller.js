@@ -6,7 +6,7 @@ async function createUser(data) {
         const existingUser = await userModel.findOne({ docId: data.docId });
         if (existingUser) {
             return {
-                status: 400,
+                status: 200,
                 message: "DOCID_ALREADY_EXISTS",
             };
         }
@@ -14,7 +14,7 @@ async function createUser(data) {
         const existingEmail = await userModel.findOne({ email: data.email });
         if (existingEmail) {
             return {
-                status: 400,
+                status: 200,
                 message: "EMAIL_ALREADY_EXISTS",
             };
         }
@@ -44,7 +44,7 @@ async function createUser(data) {
 
     } catch (error) {
         return {
-            status: 500,
+            status: 200,
             message: "ERROR_WHILE_CREATING_USER",
             error: error.message,
         };

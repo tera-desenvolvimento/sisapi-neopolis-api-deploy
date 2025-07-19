@@ -5,7 +5,7 @@ async function findUser(docId) {
         const user = await userModel.findOne({ docId: docId });
         if (!user) {
             return {
-                status: 404,
+                status: 200,
                 message: 'USER_NOT_FOUND',
             };
         }
@@ -26,7 +26,7 @@ async function findUser(docId) {
     }
     catch (error) {
         return {
-            status: 500,
+            status: 200,
             message: 'INTERNAL_SERVER_ERROR',
             error: error.message,
         };
