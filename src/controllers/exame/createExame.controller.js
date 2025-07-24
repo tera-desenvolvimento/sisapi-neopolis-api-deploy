@@ -1,4 +1,4 @@
-const exameModel = require('../../models/exame.model');
+const exameModel = require('../../models/exame.model'); 
 
 async function createExame(data) {
     try {
