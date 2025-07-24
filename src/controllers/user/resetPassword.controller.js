@@ -43,7 +43,7 @@ async function resetPassword(userId, token, newPassword) {
         }
     } catch (error) {
         return {
-            status: 'error',
+            status: 200,
             message: 'An error occurred while resetting password',
             error: error
         }

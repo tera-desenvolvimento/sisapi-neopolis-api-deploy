@@ -38,6 +38,7 @@ async function authenticateUser(docId, password) {
         }
     } catch (error) {
         return {
+            status: 200,
             message: 'INTERNAL_SERVER_ERROR',
             error: error.message,
         };

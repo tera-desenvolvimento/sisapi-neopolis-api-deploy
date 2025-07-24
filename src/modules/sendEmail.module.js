@@ -26,7 +26,7 @@ const sendMail = async (email, subject, text, html) => {
         }
     } catch (error) {
         return {
-            status: 'error',
+            status: 200,
             message: 'Email cannot be sent',
             error: error
         }

@@ -45,7 +45,7 @@ async function requestPasswordRecovery(email) {
         }
     } catch (error) {
         return {
-            status: 'error',
+            status: 200,
             message: 'An error occurred while trying to recover your password',
             error: error
         }
