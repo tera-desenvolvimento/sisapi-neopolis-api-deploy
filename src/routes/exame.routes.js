@@ -59,9 +59,9 @@ router.post('/exame/notifyPacient', async (req, res) => {
 })
 
 router.post('/exame/search', async (req, res) => {
-    const { queryString } = req.body;
+    const { queryString, delivered } = req.body;
 
-    const searchResults = await searchExame(queryString);
+    const searchResults = await searchExame(queryString, delivered);
 
     return res.json(searchResults)
 })

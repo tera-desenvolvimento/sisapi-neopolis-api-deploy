@@ -1,7 +1,7 @@
 const exameModel = require('../../models/exame.model');
 
-async function searchExame(queryString) {
-    const exames = await exameModel.find({ delivered: false }).find({patientName: { $regex: new RegExp(queryString), $options: 'i' }});
+async function searchExame(queryString, delivered) {
+    const exames = await exameModel.find({ delivered: delivered }).find({patientName: { $regex: new RegExp(queryString), $options: 'i' }});
     return exames;
 }
 
