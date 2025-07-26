@@ -6,7 +6,7 @@ async function notifyPacient(data) {
         const exameData = await exameModel.find({ exameId: data.exameId });
         const endpoint = process.env.WHAPI_BOT_URL + "/sendMessage";
         
-        let messageData = `Olá, *${exameData[0].patientName}*! Tudo bem?\n\nEstamos entrando em contato para informar que o resultado do seu exame de *${exameData[0].type}* já está disponível.\n\nVocê pode retirá-lo diretamente na Secretaria de Saúde durante o horário de atendimento.\n\nQualquer dúvida, estamos à disposição por aqui! 😊`;
+        let messageData = `📢 Este é o canal oficial de notificações da Secretaria Municipal de Saúde.\n\nOlá, ${exameData[0].patientName}! 👋\n\nSeu exame de ${exameData[0].type} 🧪 já está disponível!\nA retirada pode ser feita na Secretaria de Saúde 🏥\n📍 Rua do Bonfim, nº 565 – Neópolis\n🕒 Segunda a sexta, das 7h30 às 13h\n\n⚠️ Este número envia apenas notificações e não recebe mensagens.\n\nEm caso de dúvidas, procure diretamente a Secretaria. 😊`;
 
         const sendMessage = await axios.post(
             endpoint,
