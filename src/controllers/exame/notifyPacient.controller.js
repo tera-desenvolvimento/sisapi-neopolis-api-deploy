@@ -6,7 +6,7 @@ async function notifyPacient(data) {
         const exameData = await exameModel.find({ exameId: data.exameId });
         const endpoint = process.env.WHAPI_BOT_URL + "/sendMessage";
         
-        let messageData = `📢 Este é o canal oficial de notificações da Secretaria Municipal de Saúde.\n\nOlá, ${exameData[0].patientName}! 👋\n\nSeu exame de ${exameData[0].type} 🧪 já está disponível!\nA retirada pode ser feita na Secretaria de Saúde 🏥\n📍 Rua do Bonfim, nº 565 – Neópolis\n🕒 Segunda a sexta, das 7h30 às 13h\n\n⚠️ Este número envia apenas notificações e não recebe mensagens.\n\nEm caso de dúvidas, procure diretamente a Secretaria. 😊`;
+        let messageData = `📢 Este é o canal oficial de notificações da *Secretaria Municipal de Saúde de Neópolis*.\n\nOlá, *${exameData[0].patientName}*! 👋\n\nSeu exame: *${exameData[0].type}* 🧪 já está disponível!\nA retirada pode ser feita na Secretaria de Saúde 🏥\n📍 Rua do Bonfim, nº 565 – Neópolis\n🕒 Segunda a sexta, das 7h30 às 13h\n\n⚠️ *Este número envia apenas notificações e não recebe mensagens.*\n\nEm caso de dúvidas, procure diretamente a Secretaria. 😊`;
 
         const sendMessage = await axios.post(
             endpoint,
