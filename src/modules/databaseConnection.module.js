@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 
-const connectionParams = {};
+const connectionParams = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true
+};
 
 mongoose.set("strictQuery", true);
 
