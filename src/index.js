@@ -30,10 +30,10 @@ app.get('/', (req, res) => {
     })
 })
 
+require("./modules/databaseConnection.module");
+
 app.use(userRoutes);
 app.use(exameRoutes);
 app.use(exameTypeRoutes);
-
-require("./modules/databaseConnection.module");
 
 app.listen(PORT);
