@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
 
 const connectionParams = {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true
+    connectTimeoutMS: 10000,
+    serverSelectionTimeoutMS: 10000
 };
 
 mongoose.set("strictQuery", true);
+mongoose.set('bufferCommands', false);
 
 const connection = mongoose.connect(process.env.MONGO_CONNECTION_URL, connectionParams)
     .then(() => {
