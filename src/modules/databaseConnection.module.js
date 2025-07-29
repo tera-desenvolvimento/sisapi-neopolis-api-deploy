@@ -1,20 +1,21 @@
 const mongoose = require("mongoose");
 
-const connectionParams = {
-    connectTimeoutMS: 10000,
-    serverSelectionTimeoutMS: 10000
-};
+const connectionParams = {};
 
 mongoose.set("strictQuery", true);
 mongoose.set('bufferCommands', false);
 
-const connection = mongoose.connect(process.env.MONGO_CONNECTION_URL, connectionParams)
-    .then(() => {
-        console.log("Successfully connected to MongoDB Server");
-    })
-    .catch(err => {
-        console.log("Error while connecting to MongoDB Server", err);
+async function connectDB() {
+  try {
+    await mongoose.connect(process.env.MONGO_CONNECTION_URL, {
+      connectTimeoutMS: 10000,
+      serverSelectionTimeoutMS: 10000,
+    });
+    console.log('✅ Conectado ao MongoDB');
+  } catch (err) {
+    console.error('❌ Erro ao conectar ao MongoDB:', err.message);
+    process.exit(1); // Encerra o app se a conexão falhar
+  }
+}
 
-    })
-
-module.exports = connection;
+module.exports = connectDB;
