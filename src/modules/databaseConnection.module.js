@@ -14,7 +14,6 @@ async function connectDB() {
     console.log('✅ Conectado ao MongoDB');
   } catch (err) {
     console.error('❌ Erro ao conectar ao MongoDB:', err.message);
-    process.exit(1); // Encerra o app se a conexão falhar
   }
 }
 
