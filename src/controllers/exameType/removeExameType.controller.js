@@ -1,8 +1,8 @@
 const exameTypeModel = require('../../models/exameType.model');
 
-async function removeExameType(exameTypeId) {
+async function removeExameType(exameType) {
     try {
-        const exameType = await exameTypeModel.findOneAndDelete({ exameTypeId: exameTypeId });
+        const exameType = await exameTypeModel.findOneAndDelete({ type: exameType });
 
         if (!exameType) {
             return {
