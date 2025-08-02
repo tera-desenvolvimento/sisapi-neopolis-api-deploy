@@ -7,6 +7,7 @@ const updateExame = require('../controllers/exame/updateExame.controller');
 const listDeliveredExames = require("../controllers/exame/listDeliveredExames.controller");
 const notifyPacient = require('../controllers/exame/notifyPacient.controller');
 const searchExame = require('../controllers/exame/searchExame.controller');
+const listPacientExames = require('../controllers/exame/listPacientExames.controller');
 
 router.post('/exame/create', async (req, res) => {
     const { docId, type, patientName, patientNumber } = req.body;
@@ -64,6 +65,14 @@ router.post('/exame/search', async (req, res) => {
     const searchResults = await searchExame(queryString, delivered);
 
     return res.json(searchResults)
+})
+
+router.post('/exame/listPacientExames', async (req, res) => {
+    const { docId } = req.body;
+
+    const pacientExames = await listPacientExames(docId);
+
+    return res.json(pacientExames)
 })
 
 module.exports = router;
