@@ -8,6 +8,7 @@ const connectDB = require("./modules/databaseConnection.module");
 const userRoutes = require("./routes/user.routes");
 const exameRoutes = require("./routes/exame.routes");
 const exameTypeRoutes = require("./routes/exameType.routes");
+const driverRoutes = require('./routes/driver.routes');
 
 const app = express();
 
@@ -37,6 +38,7 @@ async function startApp() {
     app.use(userRoutes);
     app.use(exameRoutes);
     app.use(exameTypeRoutes);
+    app.use(driverRoutes);
 
     app.listen(PORT);
 }
