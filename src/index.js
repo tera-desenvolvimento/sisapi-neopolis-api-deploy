@@ -10,6 +10,7 @@ const exameRoutes = require("./routes/exame.routes");
 const exameTypeRoutes = require("./routes/exameType.routes");
 const driverRoutes = require('./routes/driver.routes');
 const tripDestinationRoutes = require('./routes/tripDestination.routes');
+const tripRoutes = require('./routes/trip.routes');
 
 const app = express();
 
@@ -41,6 +42,7 @@ async function startApp() {
     app.use(exameTypeRoutes);
     app.use(driverRoutes);
     app.use(tripDestinationRoutes);
+    app.use(tripRoutes);
 
     app.listen(PORT);
 }
