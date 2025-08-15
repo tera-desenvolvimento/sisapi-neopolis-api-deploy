@@ -9,6 +9,7 @@ const userRoutes = require("./routes/user.routes");
 const exameRoutes = require("./routes/exame.routes");
 const exameTypeRoutes = require("./routes/exameType.routes");
 const driverRoutes = require('./routes/driver.routes');
+const tripDestinationRoutes = require('./routes/tripDestination.routes');
 
 const app = express();
 
@@ -39,6 +40,7 @@ async function startApp() {
     app.use(exameRoutes);
     app.use(exameTypeRoutes);
     app.use(driverRoutes);
+    app.use(tripDestinationRoutes);
 
     app.listen(PORT);
 }
