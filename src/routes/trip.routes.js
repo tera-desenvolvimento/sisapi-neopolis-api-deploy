@@ -11,7 +11,7 @@ router.post('/trip/create', async (req, res) => {
     res.json(result);
 });
 
-router.get('/trip/list', async (req, res) => {
+router.post('/trip/list', async (req, res) => {
     const { date } = req.body;
     const result = await listTrips(date);
     res.json(result);
