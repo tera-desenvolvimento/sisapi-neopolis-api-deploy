@@ -16,8 +16,7 @@ const vehicleSchema = new mongoose.Schema(
             default: false
         },
         inspectionDetails: {
-            type: String,
-            required: true
+            type: String
         }
     }
 )
