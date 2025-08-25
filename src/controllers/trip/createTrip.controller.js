@@ -10,7 +10,8 @@ async function createTrip(date) {
             restTime: "",
             returnTime: "",
             arriveTime: "",
-            vehicleId: ""
+            vehicleId: "",
+            driverId: ""
         });
         await newTrip.save();
         return {

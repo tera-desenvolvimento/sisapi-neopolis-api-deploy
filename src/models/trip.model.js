@@ -30,6 +30,9 @@ const tripSchema = new mongoose.Schema(
         patients: {
             type: Array,
             default: []
+        },
+        driverId: {
+            type: String
         }
     }
 )
