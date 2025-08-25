@@ -9,7 +9,7 @@ const vehicleSchema = new mongoose.Schema(
         plate: {
             type: String,
             required: true,
-            unique: true
+            unique: true,
         },
         inspectionStatus: {
             type: Boolean,
