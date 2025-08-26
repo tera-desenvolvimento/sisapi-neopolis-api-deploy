@@ -5,6 +5,7 @@ const listTrips = require('../controllers/trip/listTrips.controller');
 const updateTrip = require('../controllers/trip/updateTrip.controller');
 const removeTrip = require('../controllers/trip/removeTrip.controller');
 const addPatient = require('../controllers/trip/addPatient.controller');
+const findTrip = require('../controllers/trip/findTrip.controller');
 
 router.post('/trip/create', async (req, res) => {
     const { date } = req.body;
@@ -15,6 +16,12 @@ router.post('/trip/create', async (req, res) => {
 router.post('/trip/list', async (req, res) => {
     const { date } = req.body;
     const result = await listTrips(date);
+    res.json(result);
+});
+
+router.get('/trip/:id', async (req, res) => {
+    const { id } = req.params;
+    const result = await findTrip(id);
     res.json(result);
 });
 
