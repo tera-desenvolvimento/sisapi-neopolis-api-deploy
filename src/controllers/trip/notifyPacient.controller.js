@@ -8,15 +8,16 @@ async function notifyPacient(tripId, patientNumber, patientName) {
 
         let messageData = `📢 Este é o canal oficial de notificações da Secretaria Municipal de Saúde de Neópolis.\n\nOlá, ${patientName}! Tenho uma mensagem aqui do nosso setor de transportes👋\n\nTô passando pra confirmar sua vaga no dia: ${tripData.date} no veículo das ${tripData.exitTime} com destino à ${tripData.destination}! 🚐\n\nÉ importante lembrar que o veículo sai no horário marcado, seja pontual.\n\n📍 Rua do Bonfim, nº 565 – Neópolis\n\n🕒 Segunda a sexta, das 7h30 às 13h\n\n⚠️ Este número envia apenas notificações e não recebe mensagens.\n\nEm caso de dúvidas, procure diretamente a Secretaria. 😊`;
 
-        const sendMessage = await axios.post(endpoint, {
-            headers: {
+        const sendMessage = await axios.post(
+            endpoint,
+            {
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 to: patientNumber,
-                body: messageData
+                message: messageData
             }
-        });
+        );
 
         return {
             status: 200,
