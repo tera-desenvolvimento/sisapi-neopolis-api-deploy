@@ -14,7 +14,7 @@ async function notifyPacient(tripId, patientNumber, patientName) {
                     'Content-Type': 'application/json'
                 },
                 to: patientNumber,
-                message: messageData
+                body: messageData
             }
         });
 
