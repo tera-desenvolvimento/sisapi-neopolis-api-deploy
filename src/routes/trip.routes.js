@@ -7,6 +7,7 @@ const removeTrip = require('../controllers/trip/removeTrip.controller');
 const addPatient = require('../controllers/trip/addPatient.controller');
 const findTrip = require('../controllers/trip/findTrip.controller');
 const notifyPacient = require('../controllers/trip/notifyPacient.controller');
+const getTripsByDocId = require('../controllers/trip/getTripsByDocId.controller');
 
 router.post('/trip/create', async (req, res) => {
     const { date } = req.body;
@@ -49,6 +50,12 @@ router.post('/trip/addPatient/:id', async (req, res) => {
 router.post('/trip/notifyPatient', async (req, res) => {
     const { tripId, patientNumber, patientName } = req.body;
     const result = await notifyPacient(tripId, patientNumber, patientName);
+    res.json(result);
+});
+
+router.get('/trip/patient/:docId', async (req, res) => {
+    const { docId } = req.params;
+    const result = await getTripsByDocId(docId);
     res.json(result);
 });
 
