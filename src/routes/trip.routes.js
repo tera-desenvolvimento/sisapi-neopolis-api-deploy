@@ -48,8 +48,8 @@ router.post('/trip/addPatient/:id', async (req, res) => {
 });
 
 router.post('/trip/notifyPatient', async (req, res) => {
-    const { tripId, patientNumber, patientName } = req.body;
-    const result = await notifyPacient(tripId, patientNumber, patientName);
+    const { tripId, patientNumber, patientName, destination } = req.body;
+    const result = await notifyPacient(tripId, patientNumber, patientName, destination);
     res.json(result);
 });
 
