@@ -14,7 +14,7 @@ const fixedTripSchema = new mongoose.Schema(
             type: String,
             default: ""
         },
-        vehicheId: {
+        vehicleId: {
             type: String,
             default: ""
         },
