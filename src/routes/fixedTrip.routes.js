@@ -6,6 +6,7 @@ const addPatient = require("../controllers/fixedTrip/addPatiend.controller");
 const listFixedTrips = require("../controllers/fixedTrip/listFixedTrips.controller");
 const removeFixedTrip = require("../controllers/fixedTrip/removeFixedTrip.controller");
 const notifyPacient = require("../controllers/fixedTrip/notifyPatient.controller");
+const findTrip = require("../controllers/fixedTrip/findFixedTrip.controller")
 
 router.get("/trip/fixed/create", async (req, res) => {
     const result = await createFixedTrip();
@@ -47,5 +48,11 @@ router.post('/trip/fixed/notifypatient', async (req, res) => {
     const result = await notifyPacient(tripId, patientNumber, patientName, destination);
     res.json(result);
 });
+
+router.get('/trip/fixed/:id', async (req, res) => {
+    const { id } = req.params;
+    const result = await findTrip(id);
+    res.json(result);
+})
 
 module.exports = router;
