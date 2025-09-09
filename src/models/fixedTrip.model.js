@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const fixedTripSchema = new mongoose.Schema(
     {
         driverId: {
-            type: string,
+            type: String,
             default: ""
         },
         weekDay: {
