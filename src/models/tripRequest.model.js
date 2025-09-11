@@ -30,7 +30,7 @@ const tripRequestSchema = new mongoose.Schema(
             type: String,
             required: true
         },
-        shedulingDocumentImageId: {
+        shedulingDocumentImage: {
             type: String,
             required: true
         },

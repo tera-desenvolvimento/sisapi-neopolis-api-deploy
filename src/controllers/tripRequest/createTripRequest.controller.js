@@ -10,7 +10,7 @@ async function createTripRequest(data) {
             phone: data.phone,
             pickupLocation: data.pickupLocation,
             destination: data.destination,
-            shedulingDocumentImageId: data.shedulingDocumentImageId
+            shedulingDocumentImage: data.shedulingDocumentImage
         })
 
         return {
