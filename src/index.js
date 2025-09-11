@@ -13,6 +13,7 @@ const tripDestinationRoutes = require('./routes/tripDestination.routes');
 const tripRoutes = require('./routes/trip.routes');
 const vehicleRoutes = require('./routes/vehicle.routes');
 const fixedTripRoutes = require('./routes/fixedTrip.routes');
+const tripRequestRoutes = require('./routes/tripRequest.routes');
 
 const app = express();
 
@@ -47,6 +48,7 @@ async function startApp() {
     app.use(tripRoutes);
     app.use(vehicleRoutes);
     app.use(fixedTripRoutes);
+    app.use(tripRequestRoutes);
 
     app.listen(PORT);
 }
