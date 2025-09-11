@@ -5,11 +5,18 @@ async function getDispoTrips(date) {
         var availableSeats = [
             {   
                 exitTime: "04:00",
-                availableSeats: 29
+                availableSeats: 29,
+                destination: "ARACAJU"
+            },
+            {   
+                exitTime: "06:00",
+                availableSeats: 13,
+                destination: "PROPRIÁ"
             },
             {   
                 exitTime: "09:00",
-                availableSeats: 14
+                availableSeats: 14,
+                destination: "ARACAJU"
             }
         ];
 
@@ -20,8 +27,10 @@ async function getDispoTrips(date) {
 
             if (trip.exitTime === "04:00") {
                 availableSeats[0].availableSeats = availableSeats[0].availableSeats - patientsForTrip;
-            } else if (trip.exitTime === "09:00") {
+            } else if (trip.exitTime === "06:00") {
                 availableSeats[1].availableSeats = availableSeats[1].availableSeats - patientsForTrip;
+            } else if (trip.exitTime === "09:00") {
+                availableSeats[2].availableSeats = availableSeats[2].availableSeats - patientsForTrip;
             }
         });
 
