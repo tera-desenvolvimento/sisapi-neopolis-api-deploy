@@ -6,6 +6,7 @@ async function createTripRequest(data) {
             name: data.name,
             docId: data.docId,
             tripDate: data.tripDate,
+            exitTime: data.exitTime,
             address: data.address,
             phone: data.phone,
             pickupLocation: data.pickupLocation,
