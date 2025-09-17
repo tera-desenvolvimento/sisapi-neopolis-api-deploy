@@ -2,7 +2,7 @@ const tripRequestModel = require('../../models/tripRequest.model');
 
 async function getTripRequestByCar(tripDate, exitTime) {
     try {
-        const requests = await tripRequestModel.find({ tripDate, exitTime });
+        const requests = await tripRequestModel.find({ tripDate, exitTime, requestStatus: "pending" });
         return {
             status: 200,
             message: "Trip requests retrieved successfully",
