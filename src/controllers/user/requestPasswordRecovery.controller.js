@@ -38,6 +38,7 @@ async function requestPasswordRecovery(email) {
                 return {
                     userId: user._id,
                     userName: user.name,
+                    docId: user.docId,
                     token: token.token
                 }
 
