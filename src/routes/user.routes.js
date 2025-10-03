@@ -10,18 +10,19 @@ const toggleActivateUser = require('../controllers/user/toggleActivateUser.contr
 const requestPasswordRecovery = require('../controllers/user/requestPasswordRecovery.controller');
 const resetPassword = require('../controllers/user/resetPassword.controller');
 const sendEmail = require('../modules/sendEmail.module');
+const updateUser = require('../controllers/user/updateUser.controller');
 
 const validateEmail = require('../modules/validateEmail.module');
 const validatePassword = require('../modules/validatePassword.module');
 
 router.post('/user/create', async (req, res) => {
-    const { docId, name, email, role, password } = req.body;
+    const { docId, name, email, role, password, modules } = req.body;
 
-    if (!docId || !name || !email || !role || !password) {
+    if (!docId || !name || !email || !role || !password || !modules) {
         return res.status(400).json({
             status: 400,
             message: "All fields are required",
-        });
+        }); 
     } else if (!validateEmail(email)) {
         return res.status(400).json({
             status: 400,
@@ -37,6 +38,14 @@ router.post('/user/create', async (req, res) => {
     const userCreated = await createUser(req.body);
 
     return res.status(userCreated.status).json(userCreated);
+})
+
+router.put('/user/update/:userId', async (req, res) => {
+    const { userId } = req.params;
+    const { updates } = req.body;
+
+    const result = await updateUser(userId, updates);
+    res.json(result);
 })
 
 router.get('/user/list', async (req, res) => {

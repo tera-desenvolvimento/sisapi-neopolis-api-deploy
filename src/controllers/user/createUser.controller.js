@@ -33,7 +33,8 @@ async function createUser(data) {
             email: data.email,
             name: data.name,
             role: data.role,
-            password: data.password,
+            modules: data.modules,
+            password: data.password
         });
 
         return {

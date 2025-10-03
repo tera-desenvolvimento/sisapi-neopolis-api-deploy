@@ -18,6 +18,7 @@ async function findUser(docId) {
                 name: user.name,
                 email: user.email,
                 role: user.role,
+                modules: user.modules,
                 isActive: user.isActive,
                 createdAt: user.createdAt,
                 updatedAt: user.updatedAt,
