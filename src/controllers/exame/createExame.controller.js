@@ -8,7 +8,10 @@ async function createExame(data) {
         if (exames.length === 0){
             exameId = "exame_00001";
         } else {
-            exameId = `exame_${String(exames.length + 1).padStart(5, '0')}`;
+            var lastExameId = exames[exames.length - 1].exameId;
+            var treatedId = parseInt(lastExameId.split("_")[1])
+
+            exameId = `exame_${String(treatedId + 1).padStart(5, '0')}`;
         }
 
         const exameCreated = await exameModel.create({
