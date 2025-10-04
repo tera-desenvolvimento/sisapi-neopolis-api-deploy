@@ -17,7 +17,7 @@ async function updateUser(userId, data) {
         return {
             status: 200,
             message: "User updated successfully",
-            user: updatedUser
+            data: updatedUser
         };
     } catch (error) {
         return {
