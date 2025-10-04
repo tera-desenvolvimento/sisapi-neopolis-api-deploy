@@ -1,8 +1,13 @@
 const userModel = require("../../models/user.model");
 
-async function updateUser(userId, updates) {
+async function updateUser(userId, data) {
     try {
-        const updatedUser = await userModel.findByIdAndUpdate(userId, updates, { new: false });
+        const updatedUser = await userModel.findByIdAndUpdate(userId, {
+            name: data.name,
+            email: data.email,
+            docId: data.docId,
+            modules: data.modules
+        }, { new: false });
         if (!updatedUser) {
             return {
                 status: 200,

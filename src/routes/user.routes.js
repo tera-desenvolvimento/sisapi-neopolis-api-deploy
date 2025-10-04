@@ -42,9 +42,9 @@ router.post('/user/create', async (req, res) => {
 
 router.put('/user/update/:userId', async (req, res) => {
     const { userId } = req.params;
-    const { updates } = req.body;
+    const { data } = req.body;
 
-    const result = await updateUser(userId, updates);
+    const result = await updateUser(userId, data);
     res.json(result);
 })
 
