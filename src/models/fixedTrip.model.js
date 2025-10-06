@@ -18,6 +18,10 @@ const fixedTripSchema = new mongoose.Schema(
             type: String,
             default: ""
         },
+        exitTime: {
+            type: String,
+            default: ""
+        },
         patients: {
             type: Array,
             default: []

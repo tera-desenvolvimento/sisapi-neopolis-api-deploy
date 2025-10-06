@@ -3,7 +3,8 @@ const fixedTripModel = require("../../models/fixedTrip.model");
 async function updateFixedTrip(tripId, updates) {
     try {
         const updatedFixedTrip = await fixedTripModel.findByIdAndUpdate(tripId, updates, { new: false });
-        if (!updateFixedTrip) {
+        
+        if (!updatedFixedTrip) {
             return {
                 status: 200,
                 message: "Trip not found"
