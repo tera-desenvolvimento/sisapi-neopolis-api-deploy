@@ -11,6 +11,7 @@ const requestPasswordRecovery = require('../controllers/user/requestPasswordReco
 const resetPassword = require('../controllers/user/resetPassword.controller');
 const sendEmail = require('../modules/sendEmail.module');
 const updateUser = require('../controllers/user/updateUser.controller');
+const deleteUser = require('../controllers/user/deleteUser.controller');
 
 const validateEmail = require('../modules/validateEmail.module');
 const validatePassword = require('../modules/validatePassword.module');
@@ -45,6 +46,13 @@ router.put('/user/update/:userId', async (req, res) => {
     const { data } = req.body;
 
     const result = await updateUser(userId, data);
+    res.json(result);
+})
+
+router.delete('/user/delete/:userId', async (req, res) => {
+    const { userId } = req.params;
+
+    const result = await deleteUser(userId);
     res.json(result);
 })
 
