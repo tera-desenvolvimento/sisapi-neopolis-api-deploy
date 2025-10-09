@@ -5,12 +5,12 @@ async function getDispoTrips(date) {
         var availableSeats = [
             {   
                 exitTime: "04:00",
-                availableSeats: 29,
+                availableSeats: 28,
                 destination: "ARACAJU"
             },
             {   
                 exitTime: "06:00",
-                availableSeats: 13,
+                availableSeats: 14,
                 destination: "PROPRIÁ"
             },
             {   
