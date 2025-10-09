@@ -18,7 +18,7 @@ const tripRequestRoutes = require('./routes/tripRequest.routes');
 const app = express();
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.urlencoded({ limit: "10mb", extended: true }));
 
 async function startApp() {
     await connectDB();
